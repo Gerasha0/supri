@@ -29,3 +29,11 @@ class UserAuthTest {
         assertFalse(auth.login("admin", "123"))
     }
 }
+
+    @Test
+    fun testPasswordStrength() {
+        assertTrue(auth.isPasswordStrong("SecurePass1"))
+        assertFalse(auth.isPasswordStrong("weak"))
+        assertFalse(auth.isPasswordStrong("12345678"))
+    }
+}
