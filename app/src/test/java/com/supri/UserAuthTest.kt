@@ -28,7 +28,6 @@ class UserAuthTest {
     fun testShortPassword() {
         assertFalse(auth.login("admin", "123"))
     }
-}
 
     @Test
     fun testPasswordStrength() {
