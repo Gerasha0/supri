@@ -5,9 +5,11 @@ class UserAuth {
         if (username.isNullOrBlank() || password.isNullOrBlank()) {
             return false
         }
-        if (password.length < 6) {
+        val cleanUser = username.trim()
+        if (cleanUser.isEmpty() || password.length < 6) {
             return false
         }
-        return username.trim() == "admin" && password == "secure123"
+        // Виправлено: перевірка логіну без урахування регістру
+        return cleanUser.equals("admin", ignoreCase = true) && password == "secure123"
     }
 }
